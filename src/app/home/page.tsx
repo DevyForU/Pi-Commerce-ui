@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import BrandCard from "./components/BrandCard"
 import CarCard from './components/CarCard';
 import Footer from "./components/Footer";
@@ -7,25 +8,34 @@ import { Car } from "./interface/car";
 
 
 function landingPage() {
-    const car: Car = {
-        name: "Audi R8",
-        price: 2000000,
-        status: "Available",
-        type: "Diesel",
-        configuration: {
-            brand: "Audi",
-            model: "Coupé V10 GT RWD 2023",
-            color: "White",
-            engine: "5.2L V10",
-            place_number: 2,
-            power: 456,
-        },
-        imageList: [
-            { id: "1", url: "https://example.com/images/audi-r8-1.jpg" },
-            { id: "2", url: "https://example.com/images/audi-r8-2.jpg" },
-            { id: "3", url: "https://example.com/images/audi-r8-3.jpg" }
-        ]
+    const useFetchCars = () => {
+        const [cars, setCars] = useState<Car[]>([]);
+        const [loading, setLoading] = useState<boolean>(true);
+        const [error, setError] = useState<string | null>(null);
+    
+        useEffect(() => {
+            const fetchCars = async () => {
+                try {
+                    const response = await fetch('http://localhost:8080/car');
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch cars');
+                    }
+                    const data = await response.json();
+                    setCars(data);
+                } catch (err: any) {
+                    setError(err.message);
+                } finally {
+                    setLoading(false);
+                }
+            };
+    
+            fetchCars();
+        }, []);
+    
+        return { cars, loading, error };
     };
+    
+    const {cars, loading, error} = useFetchCars();
 
     return (
         <>
@@ -50,12 +60,9 @@ function landingPage() {
                 <div className="flex flex-col pt-12 pb-16 bg-white pl-44 overflow-x-auto">
                     <h1 className="text-2xl mb-9  font-semibold">🔥 Popular cars</h1>
                     <div className="flex gap-5 flex-wrap">
-                        <CarCard car={car} />
-                        <CarCard car={car} />
-                        <CarCard car={car} />
-                        <CarCard car={car} />
-                        <CarCard car={car} />
-                        <CarCard car={car} />
+                        {cars.map(car => (
+                            <CarCard car={car}/>
+                        ))}
                     </div>
                 </div>
                 <div>
