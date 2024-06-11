@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import BrandCard from "./components/BrandCard"
-import CarCard from './components/CarCard';
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar"
-import { Car } from "./interface/car";
+import BrandCard from "../../components/BrandCard"
+import CarCard from '../../components/CarCard';
+import Footer from "../../components/Footer";
+import NavBar from "../../components/NavBar"
+import { Car } from "../../interface/car";
 
 
 function landingPage() {
