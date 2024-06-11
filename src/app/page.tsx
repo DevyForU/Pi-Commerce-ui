@@ -1,5 +1,5 @@
-export default function Home() {
-  return (
-      <p>Hello World</p>
-  );
+import { redirect } from "next/navigation";
+
+export default function Homz(){
+  return redirect("/home")
 }
