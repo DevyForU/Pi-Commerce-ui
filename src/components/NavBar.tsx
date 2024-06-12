@@ -1,48 +1,39 @@
-import Link from "next/link"
-import { useEffect, useState } from "react";
+import  React  from "react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 
-function NavBar() {
-    const [nav, setNav] = useState(false);
-    const [color, setColor] = useState("transparent");
-
-    const handleNav = () => {
-        setNav(!nav);
-    };
-
-    useEffect(() => {
-        const changeColor = () => {
-            if (window.scrollY >= 90) {
-                setColor("rgba(0, 0, 0, 0.9)");
-            } else {
-                setColor("transparent");
-            }
-        };
-        window.addEventListener("scroll", changeColor);
-    }, []);
-
+export default function App() {
     return (
-        <div style={{ backgroundColor: `${color}`}} 
-        className="flex fixed w-full justify-center py-5 px-24 bg-opacity-65 text-white">
-            <Link href={"/"}>
-                <h1 className="text-xl mt-1 hover:scale-125">VAIKA</h1>
+      <Navbar shouldHideOnScroll>
+        <NavbarBrand>
+          <p className="font-bold text-inherit">Vaika Store</p>
+        </NavbarBrand>
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Features
             </Link>
-            <ul className="flex ml-auto gap-7">
-                <li className="mt-2 hover:underline">
-                    <Link href={"/"}>Home</Link>
-                </li>
-                <li className="mt-2 hover:underline">
-                    <Link href={"/"}>Search</Link>
-                </li>
-                <li className="mt-2 hover:underline">
-                    <Link href={"/"}>Contact</Link>
-                </li>
-                <li>
-                    <button className="px-6 py-2 border border-white rounded-full text-black bg-white hover:text-white hover:bg-transparent ">Sign Up</button>
-                </li>
-            </ul>
-
-        </div>
-    )
-}
-
-export default NavBar
+          </NavbarItem>
+          <NavbarItem isActive>
+            <Link href="#" aria-current="page">
+              Customers
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="#">
+              Integrations
+            </Link>
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent justify="end">
+          <NavbarItem className="hidden lg:flex">
+            <Link href="#">Login</Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="primary" href="#" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
+    );
+  }
