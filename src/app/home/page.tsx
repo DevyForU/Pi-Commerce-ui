@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import BrandCard from "../../components/BrandCard";
+import BrandCarousel from "../../components/BrandCarousel";
 import CarCard from "../../components/CarCard";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
@@ -46,12 +46,7 @@ export default function LandingPage() {
           <div className="bg-slate-100 pt-16 pb-10 rounded-t-[70px]">
             <h1 className="text-2xl ml-44 mb-5 font-semibold">Explore Our Premium Brands</h1>
             <div className="flex justify-center gap-8">
-              <BrandCard name="Mercedes Benz" icon="/mercedes-benz.svg" />
-              <BrandCard name="Ford" icon="/ford.svg" />
-              <BrandCard name="Renault" icon="/renault.svg" />
-              <BrandCard name="Peugeot" icon="/peugeot.svg" />
-              <BrandCard name="Volkswagen" icon="/volkswagen.svg" />
-              <BrandCard name="Citroën" icon="/citroen.svg" />
+             <BrandCarousel/>
             </div>
           </div>
           <div className="flex flex-col pt-12 pb-16 bg-white pl-44 overflow-x-auto">
