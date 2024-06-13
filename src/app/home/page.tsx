@@ -30,9 +30,9 @@ export default function landingPage() {
 
     return (
         <>
-        <div className="bg-[url('/car1.jpg')] bg-contain">
+        <div className="bg-[url('/car1.jpg')] bg-no-repeat bg-contain">
             <div className="bg-black bg-opacity-65">
-                <NavBar />
+                <NavBar/>
                 <div className="flex flex-col text-white items-center pt-40 pb-72">
                     <p className="text-sm mb-2">Find cars for sale near you</p>
                     <p className="font-semibold text-4xl">Find Your Perfect Car</p>

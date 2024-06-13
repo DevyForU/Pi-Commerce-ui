@@ -1,7 +1,7 @@
 import { ArrowUpRightIcon, BeakerIcon, BoltIcon, UserIcon } from '@heroicons/react/24/outline'
 import Popup from 'reactjs-popup';
-import CarDetails from './CarDetails';
-import { Car } from '../app/home/interface/car';
+import CarDetails from '../components/CarDetails';
+import { Car } from '../interface/car';
 import { ReactNode } from 'react';
 
 interface CarCardProps {
