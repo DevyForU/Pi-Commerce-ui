@@ -70,8 +70,8 @@ const LandingPage: React.FC = () => {
           <div className="flex flex-col pt-12 pb-16 bg-white pl-44 overflow-x-auto">
             <h1 className="text-2xl mb-9 font-semibold">🔥 Popular cars</h1>
             <div className="flex gap-5 flex-wrap">
-              {cars.map((car, index) => (
-                <CarCard key={index} car={car} />
+              {cars.map(car => (
+                <CarCard car={car} />
               ))}
             </div>
           </div>
