@@ -1,5 +1,5 @@
 import { ArrowRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Car } from "../interface/car";
+import { Car } from "../app/home/interface/car";
 
 interface CarDetailsProps {
     car: Car;

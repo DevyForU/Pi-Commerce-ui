@@ -1,0 +1,24 @@
+/* carousel.css */
+
+.carousel-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-prev, .slick-next {
+  color: black;
+}
+
+.slick-prev:hover, .slick-next:hover {
+  color: black;
+}
+
+.slick-dots li button:before {
+  color: black;
+}
