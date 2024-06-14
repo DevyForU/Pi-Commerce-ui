@@ -6,6 +6,7 @@ import CarCard from "../../components/CarCard";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 import { Car } from "../../interface/car";
+import BrandCard from "@/components/BrandCard";
 
 const useFetchCars = () => {
   const [cars, setCars] = useState<Car[]>([]);
@@ -15,7 +16,7 @@ const useFetchCars = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch('http://localhost:8080/cars');
+        const response = await fetch('http://[::1]:3001/cars');
 
         if (!response.ok) {
           throw new Error('Failed fetching cars');
@@ -35,6 +36,15 @@ const useFetchCars = () => {
 
   return { cars, loading, error };
 };
+
+const brands = [
+  { name: "Mercedes Benz", icon: "/mercedes-benz.svg" },
+  { name: "Ford", icon: "/ford.svg" },
+  { name: "Renault", icon: "/renault.svg" },
+  { name: "Peugeot", icon: "/peugeot.svg" },
+  { name: "Volkswagen", icon: "/volkswagen.svg" },
+  { name: "Citroën", icon: "/citroen.svg" },
+];
 
 const LandingPage: React.FC = () => {
   const { cars, loading, error } = useFetchCars();
@@ -66,12 +76,14 @@ const LandingPage: React.FC = () => {
           <div className="bg-slate-100 pt-16 pb-10 rounded-t-[70px]">
             <h1 className="text-2xl ml-44 mb-5 font-semibold">Explore Our Premium Brands</h1>
             <div className="flex justify-center gap-8">
-              <BrandCarousel />
+            {brands.map((brand, index) => (
+          <BrandCard key={index} name={brand.name} icon={brand.icon} />
+        ))}
             </div>
           </div>
-          <div className="flex flex-col pt-12 pb-16 bg-white pl-44 overflow-x-auto">
-            <h1 className="text-2xl mb-9 font-semibold">🔥 Popular cars</h1>
-            <div className="flex gap-5 flex-wrap">
+          <div className="flex flex-col pt-12 pb-16 bg-white overflow-x-auto">
+            <h1 className="text-2xl mb-9 font-semibold pl-32">🔥 Popular cars</h1>
+            <div className="flex gap-5 flex-wrap justify-center">
               {cars.map(car => (
                 <CarCard car={car} />
               ))}
