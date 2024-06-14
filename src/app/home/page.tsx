@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import BrandCarousel from "../../components/BrandCarousel";
 import CarCard from "../../components/CarCard";

@@ -1,4 +1,5 @@
 "use client";
+import NavBar from "@/components/NavBar";
 import { UserIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -62,7 +63,11 @@ function CarDetails() {
   }
 
   return (
-    <div className="bg-[url('/bg.png')] bg-cover h-screen flex flex-col items-center">
+    <>
+      <div className="bg-[#303841]">
+        <NavBar />
+      </div>
+      <div className="bg-[url('/bg.png')] bg-cover h-screen flex flex-col items-center">
       <div className="z-0 absolute mt-48">
         <p className="font-bold text-9xl text-[#F3F3F3]">{car.model}</p>
       </div>
@@ -106,6 +111,7 @@ function CarDetails() {
         </Link>
       </div>
     </div>
+    </>
   );
 }
 
