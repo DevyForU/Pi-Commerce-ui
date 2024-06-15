@@ -6,7 +6,7 @@ import { AuthProvider, HttpError } from "react-admin";
 export const authProvider: AuthProvider = {
   login: async ({ name, password }) => {
 
-    const responses= await fetch('http://localhost:3000/users')
+    const responses= await fetch('http://[::1]:3000/users')
     const users= await responses.json()
     let user = null; // Initialisation à null pour le cas où aucun utilisateur n'est trouvé
 

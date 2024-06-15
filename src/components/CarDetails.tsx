@@ -1,15 +1,21 @@
-import { ArrowRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Car } from "../app/home/interface/car";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Car } from "@/interface/car";
+import Button from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import CustomForm from "./CustomForm";
+
 
 interface CarDetailsProps {
     car: Car;
-    onClick: () => void;
   }
   
-const CarDetails: React.FC<CarDetailsProps> = ({ car, onClick }) => {
+const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
     return (
         <div className=" w-[57vw] shadow-xl bg-white hover:shadow-xl">
-            <XMarkIcon onClick={onClick} className="w-9 pt-3 pl-3 hover:cursor-pointer" />
             <div className="flex justify-center self-center pl-14 py-6">
                 <div className="mr-auto mt-6">
                     <h1 className="text-4xl font-semibold">{car.name}</h1>
@@ -33,7 +39,16 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car, onClick }) => {
                             <li>{car.configuration.power} kW</li>
                         </ul>
                     </div>
-                    <button className="flex text-white bg-black px-4 py-2 mt-8 hover:scale-105">MAKE AN APPOINTMENT <ArrowRightIcon className="w-4 mt-1 ml-1" /></button>
+                    hello guys mldjflkjlkfqjl
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button type="button">MAKE AN APPOINTEMENT</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-md">
+                            Hello this is content
+                            <CustomForm/>
+                        </DialogContent>
+                    </Dialog>
                 </div>
                 <div className="flex flex-col">
                     <div className="flex text-white bg-black py-2 pl-4 pr-9 ml-auto">

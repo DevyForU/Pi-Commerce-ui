@@ -12,6 +12,10 @@ export default function NavBar() {
     setSearchValue("");
   };
 
+  const handleLoginClick = () => {
+    window.location.href = 'http://localhost:5173';
+  };
+
   return (
     <Navbar shouldHideOnScroll className="border-none shadow-md flex justify-between items-center px-10 pt-3 pb-14 sm:py-3 sm:pt-0 sm:pb-0">
       <NavbarBrand className="grow">
@@ -57,7 +61,7 @@ export default function NavBar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="bg-slate-600 text-slate-200 px-2 py-2 rounded-lg shadow-slate-500 active:translate-y-[4px] active:shadow-none transition-all">
-          <Button href="/sign-in"> Login </Button>
+          <Button onClick={handleLoginClick}> Login </Button>
         </NavbarItem>
       </NavbarContent>
     </Navbar>

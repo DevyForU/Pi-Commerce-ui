@@ -32,7 +32,7 @@ function CarDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://[::1]:3001/cars/${idPath}`);
+        const response = await fetch(`http://[::1]:3000/cars/${idPath}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

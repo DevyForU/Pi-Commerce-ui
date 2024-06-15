@@ -16,7 +16,7 @@ const useFetchCars = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch('http://[::1]:3001/cars');
+        const response = await fetch('http://localhost:3000/cars');
 
         if (!response.ok) {
           throw new Error('Failed fetching cars');

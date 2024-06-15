@@ -12,7 +12,7 @@ import {
   import UserCreate from ".//UserCreate";
   import CarPost from "./CarPost";
   
-  const provider = lb4Provider('http://localhost:3000')
+  const provider = lb4Provider('http://[::1]:3000')
   export const AdminApp = () =>
      <Admin
     dataProvider={provider}
